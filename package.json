@@ -1,0 +1,16 @@
+{
+  "name": "eat-app",
+  "version": "0.0.1",
+  "description": "Manage your fridge and share foods",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://mhumeniuk@bitbucket.org/mhumeniuk/eat-app.git"
+  },
+  "author": "miha.000@gmail.com",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/mhumeniuk/eat-app#readme"
+}
