@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
-import Button from './shared/Button.js';
+import { StyleSheet, Text, TouchableOpacity, View, Image, Button } from 'react-native';
+import CustomButton from './CustomButton.js';
 import { Actions } from 'react-native-router-flux'
 
-
 export default class Home extends React.Component {
-
     goTo(name) {
         Actions[name]();
     }
@@ -14,8 +12,8 @@ export default class Home extends React.Component {
       return (
         <View style={styles.container}>
           <Text>Home</Text>
-          <Button text="Dashboard" action={this.goTo.bind(this, "dashboard")}/>
-          <Button text="Product" action={this.goTo.bind(this, "product")}/>
+          <Button title="Dashboard" onPress={this.goTo.bind(this, "dashboard")}></Button>
+          <Button title="Product" onPress={this.goTo.bind(this, "product")}></Button>
           <Image
             style={{width: 50, height: 50}}
             source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}

@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import { AppRegistry, View } from 'react-native';
-import Routes from './components/routes/Routes.js'
+import Routes from './routes/Routes.js';
+import store from './store/store.js';
 
 class eatApp extends Component {
    render() {
       return (
-         <Routes />
+         <Provider store={store}> 
+            <Routes />
+         </Provider>
       )
    }
 }

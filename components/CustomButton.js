@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 
-const Button = ({ text, action }) => {
+const CustomButton = ({ text, action }) => {
     return(
         <TouchableOpacity onPress={action} style={styles.button}><Text>{text}</Text></TouchableOpacity>
     )
 }
 
-export default Button
+export default CustomButton
 
 const styles = StyleSheet.create({
     button: {
