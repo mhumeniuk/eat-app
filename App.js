@@ -4,9 +4,6 @@ import { AppRegistry, View } from 'react-native';
 import Routes from './routes/Routes.js';
 import { Provider } from 'react-redux';
 
-
-import store from './store/store.js';
-
 class eatApp extends Component {
    render() {
       return (

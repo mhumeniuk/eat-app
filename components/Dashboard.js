@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default class Dashboard extends React.Component {
+    /* todo add list of products here */
     render() {
       return (
         <View style={styles.container}>
