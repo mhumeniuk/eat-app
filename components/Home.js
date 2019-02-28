@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, Image, Button } from 'react-native';
-import CustomButton from './CustomButton.js';
+import CustomButton from './shared/CustomButton.js';
 import { Actions } from 'react-native-router-flux'
 
 export default class Home extends React.Component {
@@ -8,6 +8,7 @@ export default class Home extends React.Component {
         Actions[name]();
     }
 
+    //TODO: create splashscreen
     render() {
       return (
         <View style={styles.container}>
