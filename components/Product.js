@@ -1,16 +1,32 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 import CustomImagePicker from './shared/ImagePicker.js';
+import { getProductsAsync, saveProductAsync } from '../actions/product.actions.js';
+import { connect } from 'react-redux';
+import { getUid } from 'common';
 import { Api } from '../api/api.js';
 
-export default class Product extends React.Component {
+class Product extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currentImagePath: null,
-      product: null
+      product: null,
+      products: []
     }
   }
+
+  componentWillMount() {
+    this.props.getProductsAsync("products");
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      products: newProps.products
+    });
+    console.log(newProps);
+  }
+
 
   saveImagePath = (uri) => {
     this.setState({
@@ -24,10 +40,10 @@ export default class Product extends React.Component {
   };
 
   saveProduct = () => {
+    let products = this.state.products || [];
     if (this.state.product !== null) {
-      //dispatch action here on save
-      Api.saveData('products', [this.state.product]);
-      Api.getData('products');
+      products = [...products, this.state.product];
+      this.props.saveProductAsync(products);
     }
   };
 
@@ -44,6 +60,18 @@ export default class Product extends React.Component {
     );
   }
 }
+
+const mapStateToProps = ({ data = {} }) => ({
+  data
+});
+
+export default connect((state) => (
+{
+  getProductsAsync,
+  saveProductAsync,
+}), mapStateToProps)(Product)
+
+
 
 const styles = StyleSheet.create({
   container: {

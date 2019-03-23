@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
-import   Home from '../components/Home.js';
-import { getProducts } from '../actions/product.actions.js';
+import Home from '../components/Home.js';
+import { getProductsAsync, saveProductAsync, onAddProduct } from '../actions/product.actions.js';
 
-//Map actions hereactions here
+const mapStateToProps = ({ data = {} }) => ({
+  data
+});
+
 const mapDispatchToProps = (dispatch) => ({
-  getProducts: (event) => { dispatch(getProducts(event)) },
-  //{ //getProducts: getProducts }
-})
+   onAddProduct: (product) => onAddProduct(product, dispatch)
+});
 
-export default connect(state => ({ products: state.products }), mapDispatchToProps)(Home)
+export default connect(state =>
+   mapStateToProps,
+   mapDispatchToProps
+)(Home)
+
